@@ -8,8 +8,7 @@
     "steps": [
       {
         "title": "Create a pod",
-        "text": "step1/text.md",
-        "verify": "step1/verify.sh"
+        "text": "step1/text.md"
       },
       {
         "title": "Delete a pod",
