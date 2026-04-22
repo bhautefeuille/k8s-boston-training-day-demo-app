@@ -14,10 +14,11 @@ Click on the link generated to see the front end
 
 Install K8sGPT
 `curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.4.31/k8sgpt_amd64.deb`{{exec}}
+
 `sudo dpkg -i k8sgpt_amd64.deb`{{exec}}
 
 See what k8sgpt finds about our cluster
-`k8sgpt analyze --explain`{{exec}}
+`k8sgpt analyze`{{exec}}
 
 Setup Gemini with a Key
 `k8sgpt auth update --backend google --model gemini-2.5-flash --password "AIzaSyCZ6Cb2vPcrbz6uj1nyDzghFt3owXzl29M"`{{exec}}
