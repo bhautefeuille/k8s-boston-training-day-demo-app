@@ -9,6 +9,7 @@ Here are the services
 we forward the service to port 8080
 `k port-forward --address 0.0.0.0 svc/frontend 8080:8080 &`{{exec}}
 
+
 Click on the link generated to see the front end
 `sed 's/PORT/8080/g' /etc/killercoda/host`{{exec}}
 
@@ -21,7 +22,7 @@ See what k8sgpt finds about our cluster
 `k8sgpt analyze`{{exec}}
 
 Setup Gemini with a Key
-`k8sgpt auth update --backend google --model gemini-2.5-flash --password "AIzaSyCZ6Cb2vPcrbz6uj1nyDzghFt3owXzl29M"`{{exec}}
+`k8sgpt auth add --backend google --model gemini-2.5-flash --password "AIzaSyCZ6Cb2vPcrbz6uj1nyDzghFt3owXzl29M"`{{exec}}
 
 Google is the default
 `k8sgpt auth list`{{exec}}
