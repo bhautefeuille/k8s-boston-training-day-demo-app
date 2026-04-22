@@ -1,7 +1,7 @@
 
 Let's install a demo application called 
 
-`kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/odigos-io/simple-demo/main/kubernetes/deployment.yaml`{{exec}}
+`kubectl apply -f https://raw.githubusercontent.com/odigos-io/simple-demo/main/kubernetes/deployment.yaml`{{exec}}
 
 Here are the services
 `k get svc -A`{{exec}}
