@@ -7,7 +7,7 @@
     },
     "steps": [
       {
-        "title": "Create a pod",
+        "title": "Install a demo application on our Cluster",
         "text": "step1/text.md"
       },
       {

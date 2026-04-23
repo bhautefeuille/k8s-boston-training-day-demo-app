@@ -4,6 +4,11 @@ Let's install a demo application called
 `kubectl apply -f https://raw.githubusercontent.com/odigos-io/simple-demo/main/kubernetes/deployment.yaml`{{exec}}
 
 
+What do we have?
+`k get nodes`{{exec}}
+
+
+
 Here are the pods
 `k get pods -A`{{exec}}
 
@@ -33,6 +38,21 @@ Google is the default
 
 Use AI to explain
 `k8sgpt analyze --explain --backend google`{{exec}}
+
+
+
+
+
+Installing Grafana
+```sudo apt-get install -y apt-transport-https software-properties-common wget &&
+sudo mkdir -p /etc/apt/keyrings/ &&
+wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /etc/apt/keyrings/grafana.gpg > /dev/null &&
+echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list &&
+sudo apt-get update && sudo apt-get install -y grafana```{{exec}}
+
+
+
+
 
 
 
