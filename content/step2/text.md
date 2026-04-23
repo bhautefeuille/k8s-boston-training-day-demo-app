@@ -1,5 +1,35 @@
 
 
+
+
+To set Gemini key, execute the following command
+
+export Gemini_API_KEY="your-api-key-here"
+
+`curl https://raw.githubusercontent.com/kagent-dev/kagent/refs/heads/main/scripts/get-kagent | bash`{{exec}}
+
+
+Install Kagent demo elements
+`kagent install --profile demo`{{exec}}
+
+Forward Kagent UI
+`kubectl port-forward -n kagent svc/kagent-ui 8080:8080`{{exec}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+no needed:
+
 installing helm.  (may be in backgroun)
 
 ```
@@ -9,18 +39,3 @@ echo "deb [signed-by=/usr/share/keyrings/helm.gpg] https://packages.buildkite.co
 sudo apt-get update
 sudo apt-get install helm
 ```{{exec}}
-
-
-
-To set Gemini key, execute the following command
-
-export Gemini_API_KEY="your-api-key-here"
-
-`curl https://raw.githubusercontent.com/kagent-dev/kagent/refs/heads/main/scripts/get-kagent | bash`{{EXEC}}
-
-Install Kagent demo elements
-`kagent install --profile demo`{{EXEC}}
-
-Forward Kagent UI
-`kubectl port-forward -n kagent svc/kagent-ui 8080:8080`{{EXEC}}
-
