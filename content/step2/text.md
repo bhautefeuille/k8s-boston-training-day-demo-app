@@ -18,7 +18,7 @@ helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent \
 
 
 Forward Kagent UI
-`kubectl port-forward -n kagent svc/kagent-ui 8080:8080`{{exec}}
+`kubectl port-forward --address 0.0.0.0  -n kagent svc/kagent-ui 8080:8080`{{exec}}
 
 
 
