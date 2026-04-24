@@ -1,8 +1,6 @@
 
 
 
-`kubectl taint nodes controlplane node-role.kubernetes.io/control-plane:NoSchedule-`{{exec}}
-
 Create Kagent namespace
 `kubectl create namespace kagent`{{exec}}
 
@@ -53,8 +51,24 @@ helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent --namespace kage
   --set providers.gemini.provider=Gemini \
   --set providers.gemini.apiKeySecretRef=kagent-gemini \
   --set providers.gemini.apiKeySecretKey=GOOGLE_API_KEY \
-  --set providers.gemini.model=gemini-2.5-flash
+  --set providers.gemini.model=gemini-2.5-flash \
+  --set agents.k8s-agent.enabled=true \
+  --set agents.argo-rollouts-agent.enabled=false \
+  --set agents.cilium-debug-agent.enabled=false \
+  --set agents.cilium-manager-agent.enabled=false \
+  --set agents.cilium-policy-agent.enabled=false \
+  --set agents.helm-agent.enabled=false \
+  --set agents.istio-agent.enabled=false \
+  --set agents.kgateway-agent.enabled=false \
+  --set agents.observability-agent.enabled=true \
+  --set agents.promql-agent.enabled=false \
+  --set tools.grafana-mcp.enabled=true \
+  --set tools.querydoc.enabled=true \
+  --set kagent-tools.enabled=true
 ```{{exec}}
+
+
+
 
 
 
@@ -110,3 +124,6 @@ Install Kagent demo elements
 
 
 
+
+
+`kubectl taint nodes controlplane node-role.kubernetes.io/control-plane:NoSchedule-`{{exec}}
