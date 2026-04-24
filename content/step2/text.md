@@ -72,7 +72,8 @@ Forward Kagent UI
 `nohup  kubectl port-forward --address 0.0.0.0  -n kagent svc/kagent-ui 8080:8080 > /dev/null 2>&1 &`{{exec}}
 
 
-
+Click on the link generated to see the front end
+`sed 's/PORT/8080/g' /etc/killercoda/host`{{exec}}
 
 
 
