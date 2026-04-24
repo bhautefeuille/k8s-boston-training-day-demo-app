@@ -3,7 +3,7 @@
 Create Kagent namespace
 `kubectl create namespace kagent`{{exec}}
 
-Ceate secret with Google Gemini Key
+Ceate secret with Google Gemini Key (NEED TO FIND A WAY T INSERT KEY)
 ```
 kubectl create secret generic kagent-gemini \
   -n kagent \
@@ -28,9 +28,6 @@ spec:
 EOF
 ```{{exec}}
 
-Create Kagent Resource object for the Google Gemini model
-`kubectl apply -f gemini-model.yaml`{{exec}}
-
 
 
 
@@ -42,9 +39,13 @@ helm install kagent-crds oci://ghcr.io/kagent-dev/kagent/helm/kagent-crds \
 ```{{exec}}
 
 
+Create Kagent Resource object for the Google Gemini model
+`kubectl apply -f gemini-model.yaml`{{exec}}
+
+
 
 ```
-helm install kagent kagent/kagent -n kagent \
+helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent  \
   --set providers.default=gemini \
   --set providers.gemini.provider=Gemini \
   --set providers.gemini.apiKeySecretRef=kagent-gemini \
