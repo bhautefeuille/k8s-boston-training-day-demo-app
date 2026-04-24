@@ -1,5 +1,8 @@
 
 
+
+`kubectl taint nodes controlplane node-role.kubernetes.io/control-plane:NoSchedule-`{{exec}}
+
 Create Kagent namespace
 `kubectl create namespace kagent`{{exec}}
 
@@ -63,10 +66,10 @@ kubectl describe modelconfig gemini-model-config -n kagent
 ```{{exec}}
 
 
-
+If we have everything, we can now forward kagent UI to our port 8080
 
 Forward Kagent UI
-`kubectl port-forward --address 0.0.0.0  -n kagent svc/kagent-ui 8080:8080`{{exec}}
+`nohup  kubectl port-forward --address 0.0.0.0  -n kagent svc/kagent-ui 8080:8080 > /dev/null 2>&1 &`{{exec}}
 
 
 
