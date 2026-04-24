@@ -1,17 +1,64 @@
 
+
+Create Kagent namespace
+`kubectl create namespace kagent`{{exec}}
+
+Ceate secret with Google Gemini Key
+```
+kubectl create secret generic kagent-gemini \
+  -n kagent \
+  --from-literal GOOGLE_API_KEY="your Gemini key here"
+```{{exec}}
+
+
+Create the Kagent resource manifest for the Google Gemini Model
+```
+cat > gemini-model.yaml <<'EOF'
+apiVersion: kagent.dev/v1alpha2
+kind: ModelConfig
+metadata:
+  name: gemini-model-config
+  namespace: kagent
+spec:
+  apiKeySecret: kagent-gemini
+  apiKeySecretKey: GOOGLE_API_KEY
+  model: gemini-2.5-flash
+  provider: Gemini
+  gemini: {}
+EOF
+```{{exec}}
+
+Create Kagent Resource object for the Google Gemini model
+`kubectl apply -f gemini-model.yaml`{{exec}}
+
+
+
+
+
 ```
 helm install kagent-crds oci://ghcr.io/kagent-dev/kagent/helm/kagent-crds \
     --namespace kagent \
     --create-namespace
 ```{{exec}}
 
-export OPENAI_API_KEY="your-api-key-here"
+
 
 ```
-helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent \
-    --namespace kagent \
-    --set providers.default=openAI \
-    --set providers.openAI.apiKey=$OPENAI_API_KEY
+helm install kagent kagent/kagent -n kagent \
+  --set providers.default=gemini \
+  --set providers.gemini.provider=Gemini \
+  --set providers.gemini.apiKeySecretRef=kagent-gemini \
+  --set providers.gemini.apiKeySecretKey=GOOGLE_API_KEY \
+  --set providers.gemini.model=gemini-2.5-flash
+```{{exec}}
+
+
+
+Verification
+```
+kubectl get pods -n kagent
+kubectl get modelconfigs -n kagent
+kubectl describe modelconfig gemini-model-config -n kagent
 ```{{exec}}
 
 
