@@ -45,7 +45,7 @@ Create Kagent Resource object for the Google Gemini model
 
 
 ```
-helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent  \
+helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent --namespace kagent  \
   --set providers.default=gemini \
   --set providers.gemini.provider=Gemini \
   --set providers.gemini.apiKeySecretRef=kagent-gemini \
