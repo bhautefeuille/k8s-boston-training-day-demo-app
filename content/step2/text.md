@@ -61,12 +61,21 @@ helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent --namespace kage
   --set agents.istio-agent.enabled=false \
   --set agents.kgateway-agent.enabled=false \
   --set agents.observability-agent.enabled=true \
-  --set agents.promql-agent.enabled=false \
+  --set agents.promql-agent.enabled=true \
   --set tools.grafana-mcp.enabled=true \
   --set tools.querydoc.enabled=true \
-  --set kagent-tools.enabled=true
+  --set kagent-tools.enabled=true \
+ --set querydoc.resources.requests.cpu="20m" \
+ --set querydoc.resources.requests.cpu="20m" \
+ --set kagent-tools.resources.requests.cpu"20m" \
+ --set grafana-mcp.resources.requests.cpu"20m" \
+ --set controller.resources.requests.cpu"20m" \
+ --set agents.promql-agent.resources.requests.cpu"20m" \
+ --set agents.observability-agent.resources.requests.cpu"20m" \
+ --set agents.kgateway-agent.resources.requests.cpu"20m" \
+ --set agents.k8s-agent.resources.requests.cpu"20m" \
+ --set kagent-tools.resources.requests.cpu"20m" 
 ```{{exec}}
-
 
 
 
