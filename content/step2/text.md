@@ -65,7 +65,6 @@ helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent --namespace kage
   --set tools.grafana-mcp.enabled=true \
   --set tools.querydoc.enabled=true \
   --set kagent-tools.enabled=true \
-  --set database.postgres.bundled.resources='{requests":{"cpu":"20m","memory":"25Mi"}}' \
  --set querydoc.resources.requests.cpu="20m" \
  --set querydoc.resources.requests.cpu="20m" \
  --set kagent-tools.resources.requests.cpu="20m" \
@@ -95,7 +94,8 @@ helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent --namespace kage
 
 
 
-# 
+#   --set database.postgres.bundled.resources='{requests":{"cpu":"20m","memory":"25Mi"}}' \
+
 
 
 
