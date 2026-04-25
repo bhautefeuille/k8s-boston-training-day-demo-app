@@ -75,7 +75,7 @@ helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent --namespace kage
  --set agents.kgateway-agent.resources.requests.cpu="20m" \
  --set agents.k8s-agent.resources.requests.cpu="20m" \
  --set kagent-tools.resources.requests.cpu="20m"  \
- --set database.postgres.bundled.resources="{requests\":{\"cpu\":\"20m\",\"memory\":\"25Mi\"}}" \
+ --set database.postgres.bundled.resources='{requests":{"cpu":"20m","memory":"25Mi"}}' \
  --set querydoc.resources.requests.memory="20m" \
  --set querydoc.resources.requests.memory="20m" \
  --set kagent-tools.resources.requests.memory="20m" \
