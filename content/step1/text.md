@@ -100,7 +100,7 @@ sudo dpkg -i k8sgpt_amd64.deb
 k8sgpt analyze
 ```
 
-## 15. Setup Gemini with a Key
+## 15. Setup Gemini with a Key  (check key)
 ```bash
 read -p "Enter Google Gemini API key: " GEMINI_API_KEY
 k8sgpt auth add --backend google --model gemini-2.5-flash --password $GEMINI_API_KEY
@@ -116,7 +116,7 @@ k8sgpt auth list
 k8sgpt analyze --explain --backend google
 ```
 
-## 18. Installing Grafana
+## 18. Installing Grafana (not kubes install)
 ```bash
 sudo apt-get install -y apt-transport-https software-properties-common wget &&
 sudo mkdir -p /etc/apt/keyrings/ &&
