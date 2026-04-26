@@ -40,7 +40,7 @@ Use AI to explain
 `k8sgpt analyze --explain --backend google`{{exec}}
 
 
-
+ok
 
 
 Installing Grafana
