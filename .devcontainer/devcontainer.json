@@ -1,9 +1,27 @@
 {
+  "name": "Ubuntu Kubernetes Lab",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "16gb"
+  },
+
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+
   "customizations": {
     "vscode": {
       "extensions": [
-        "stateful.runme"
+        "stateful.runme",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "redhat.vscode-yaml"
       ]
     }
-  }
+  },
+
+  "forwardPorts": [30080, 30081, 8080],
+
+  "postCreateCommand": "echo 'Codespace ready'"
 }
