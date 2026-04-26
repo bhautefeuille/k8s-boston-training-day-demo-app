@@ -102,7 +102,8 @@ k8sgpt analyze
 
 ## 15. Setup Gemini with a Key
 ```bash
-k8sgpt auth add --backend google --model gemini-2.5-flash --password "XXXXX"
+read -p "Enter Google Gemini API key: " GEMINI_API_KEY
+k8sgpt auth add --backend google --model gemini-2.5-flash --password $GEMINI_API_KEY
 ```
 
 ## 16. Google Gemini is the default model
