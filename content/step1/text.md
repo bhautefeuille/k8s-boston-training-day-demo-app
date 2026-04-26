@@ -19,10 +19,10 @@ rm stable.txt
 kubectl version --client
 ```
 
-## 3. Create a kind cluster
+## 3. Create a kind cluster with 2 nodes, a controle plane and a worker node
 
 ```bash
-kind create cluster --name training
+kind create cluster --name training --config ./misc/kind-config.yaml
 ```
 
 ## 4. Check the cluster
@@ -30,21 +30,41 @@ kind create cluster --name training
 ```bash
 kubectl get nodes
 kubectl cluster-info
+```
+
+## 5. Add k alias and 
+```bash
+# kubectl alias
+alias k=kubectl
+# enable zsh completion system (if not already enabled)
+autoload -Uz compinit
+compinit
+# kubectl completion + make it work for `k` too
+source <(kubectl completion zsh)
+compdef __start_kubectl k
+alias kpa='kubectl get pods -A'
+```
+
+## 6. Try it!
+```bash
+k get pods -A
+k get svc -A
+```
 
 
 
-Let's install a demo application called 
+## 7. Let's install a demo application with a eCommerce product listing page
 
-`kubectl apply -f https://raw.githubusercontent.com/odigos-io/simple-demo/main/kubernetes/deployment.yaml`{{exec}}
+```bash
+kubectl apply -f https://raw.githubusercontent.com/odigos-io/simple-demo/main/kubernetes/deployment.yaml
+```
+
+## 8. Check the pods
+```bash
+k get pods -A
+```
 
 
-What do we have?
-`k get nodes`{{exec}}
-
-
-
-Here are the pods
-`k get pods -A`{{exec}}
 
 Here are the services
 `k get svc -A`{{exec}}
