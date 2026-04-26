@@ -1,1 +1,9 @@
-
+{
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "stateful.runme"
+      ]
+    }
+  }
+}
