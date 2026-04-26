@@ -34,11 +34,15 @@ kubectl cluster-info
 ```
 
 ## 5. Add k alias and 
+
 ```bash
 #Make sure we are up to date, and that we have bash-completion
 sudo apt-get update
 sudo apt-get install -y bash-completion
+```
+## 6. Add kubectl completion and alias
 
+```bash
 #Add completion and alias
 cat <<'EOF' >> ~/.bashrc
 alias k=kubectl
@@ -50,7 +54,7 @@ source ~/.bashrc
 
 ```
 
-## 6. Try it!
+## 7. Try it!
 ```bash
 k get pods -A
 k get svc -A
@@ -58,13 +62,13 @@ k get svc -A
 
 
 
-## 7. Let's install a demo application with a eCommerce product listing page
+## 8. Let's install a demo application with a eCommerce product listing page
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/odigos-io/simple-demo/main/kubernetes/deployment.yaml
 ```
 
-## 8. Check the pods
+## 9. Check the pods
 ```bash
 k get pods -A
 ```
