@@ -73,46 +73,57 @@ kubectl apply -f https://raw.githubusercontent.com/odigos-io/simple-demo/main/ku
 k get pods -A
 ```
 
+## 10. Here are the services
+```bash
+k get svc -A
+```
+
+## 11. we forward the service to port 8080
+```bash
+k port-forward --address 0.0.0.0 svc/frontend 8080:8080 &
+```
 
 
-Here are the services
-`k get svc -A`{{exec}}
+## 12. Download K8sGPT
 
-we forward the service to port 8080
-`k port-forward --address 0.0.0.0 svc/frontend 8080:8080 &`{{exec}}
+```bash
+curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.4.31/k8sgpt_amd64.deb
+```
+## 13. Install K8sGPT
 
+```bash
+sudo dpkg -i k8sgpt_amd64.deb
+```
 
-Click on the link generated to see the front end
-`sed 's/PORT/8080/g' /etc/killercoda/host`{{exec}}
+## 14. See what k8sgpt finds about our cluster
 
-Install K8sGPT
-`curl -LO https://github.com/k8sgpt-ai/k8sgpt/releases/download/v0.4.31/k8sgpt_amd64.deb`{{exec}}
+```bash
+k8sgpt analyze
+```
 
-`sudo dpkg -i k8sgpt_amd64.deb`{{exec}}
+## 15. Setup Gemini with a Key
+```bash
+k8sgpt auth add --backend google --model gemini-2.5-flash --password "XXXXX"
+```
 
-See what k8sgpt finds about our cluster
-`k8sgpt analyze`{{exec}}
+## 16. Google Gemini is the default model
+```bash
+k8sgpt auth list
+```
 
-Setup Gemini with a Key
-`k8sgpt auth add --backend google --model gemini-2.5-flash --password "AIzaSyCZ6Cb2vPcrbz6uj1nyDzghFt3owXzl29M"`{{exec}}
+## 17. Use AI to explain what it found
+```bash
+k8sgpt analyze --explain --backend google
+```
 
-Google is the default
-`k8sgpt auth list`{{exec}}
-
-Use AI to explain
-`k8sgpt analyze --explain --backend google`{{exec}}
-
-
-ok
-
-
-Installing Grafana
-```sudo apt-get install -y apt-transport-https software-properties-common wget &&
+## 18. Installing Grafana
+```bash
+sudo apt-get install -y apt-transport-https software-properties-common wget &&
 sudo mkdir -p /etc/apt/keyrings/ &&
 wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /etc/apt/keyrings/grafana.gpg > /dev/null &&
 echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list &&
 sudo apt-get update && sudo apt-get install -y grafana
-```{{exec}}
+```
 
 
 
