@@ -37,12 +37,14 @@ kubectl cluster-info
 ```bash
 # kubectl alias
 alias k=kubectl
-# enable zsh completion system (if not already enabled)
-autoload -Uz compinit
-compinit
-# kubectl completion + make it work for `k` too
-source <(kubectl completion zsh)
-compdef __start_kubectl k
+
+# kubectl bash completion
+source <(kubectl completion bash)
+
+# make completion work for the `k` alias too
+complete -o default -F __start_kubectl k
+
+# useful kubectl aliases
 alias kpa='kubectl get pods -A'
 ```
 
