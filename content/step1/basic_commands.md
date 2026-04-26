@@ -4,5 +4,5 @@
 
 ## Step 2: pwd
 
-[Run: Deploy nginx](command:workbench.action.tasks.runTask?%22pwd%22)
+[Run: pwd](command:workbench.action.tasks.runTask?%22pwd%22)
 
