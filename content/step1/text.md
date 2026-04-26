@@ -35,6 +35,11 @@ kubectl cluster-info
 
 ## 5. Add k alias and 
 ```bash
+#Make sure we are up to date, and that we have bash-completion
+sudo apt-get update
+sudo apt-get install -y bash-completion
+
+
 # kubectl alias
 alias k=kubectl
 
@@ -46,6 +51,9 @@ complete -o default -F __start_kubectl k
 
 # useful kubectl aliases
 alias kpa='kubectl get pods -A'
+
+source ~/.bashrc
+
 ```
 
 ## 6. Try it!
