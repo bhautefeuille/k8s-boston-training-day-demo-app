@@ -1,3 +1,37 @@
+## 1. Install kind
+
+```bash
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.31.0/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+kind version
+```
+
+## 2. Install kubectl
+
+```bash
+curl -LO "https://dl.k8s.io/release/stable.txt"
+KUBECTL_VERSION=$(cat stable.txt)
+curl -LO "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl"
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin/kubectl
+rm stable.txt
+kubectl version --client
+```
+
+## 3. Create a kind cluster
+
+```bash
+kind create cluster --name training
+```
+
+## 4. Check the cluster
+
+```bash
+kubectl get nodes
+kubectl cluster-info
+
+
 
 Let's install a demo application called 
 
