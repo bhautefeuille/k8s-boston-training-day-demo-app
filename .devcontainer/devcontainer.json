@@ -23,5 +23,6 @@
 
   "forwardPorts": [30080, 30081, 8080],
 
-  "postCreateCommand": "echo 'Codespace ready'"
+  "postCreateCommand": "echo 'Codespace ready'",
+  "postAttachCommand": "code content/step1/text.md && code --command markdown.showPreview"
 }
