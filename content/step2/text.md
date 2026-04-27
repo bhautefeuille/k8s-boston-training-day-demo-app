@@ -7,7 +7,15 @@ Create Kagent namespace
 kubectl create namespace kagent
 ```
 
-Create secret with Google Gemini Key (NEED TO FIND A WAY T INSERT KEY)
+Get the Google Gemini key
+
+```bash
+read -p "Enter Google Gemini API key: " GEMINI_API_KEY
+```
+
+
+Create secret with Google Gemini Key
+
 
 ```bash
 kubectl create secret generic kagent-gemini \
@@ -17,6 +25,7 @@ kubectl create secret generic kagent-gemini \
 
 
 Create the Kagent resource manifest for the Google Gemini Model
+
 ```bash
 cat > gemini-model.yaml <<'EOF'
 apiVersion: kagent.dev/v1alpha2
@@ -31,23 +40,23 @@ spec:
   provider: Gemini
   gemini: {}
 EOF
-```{{exec}}
-
-
-
-
-
 ```
+
+Install CRDs for Kagent 
+
+```bash
 helm install kagent-crds oci://ghcr.io/kagent-dev/kagent/helm/kagent-crds \
     --namespace kagent \
     --create-namespace
-```{{exec}}
-
+```
 
 Create Kagent Resource object for the Google Gemini model
-`kubectl apply -f gemini-model.yaml`{{exec}}
 
+```bash
+kubectl apply -f gemini-model.yaml
+```
 
+Install kagent
 
 ```
 helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent --namespace kagent  \
@@ -91,7 +100,7 @@ helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent --namespace kage
   --set agents.promql-agent.resources.requests.memory="25Mi" \
  --set agents.promql-agent.resources.requests.cpu="20m" \
  --set kagent-tools.resources.requests.memory="25Mi" 
-```{{exec}}
+```
 
 
 
@@ -104,26 +113,21 @@ helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent --namespace kage
 
 
 Verification
-```
+
+```bash
 kubectl get pods -n kagent
 kubectl get modelconfigs -n kagent
 kubectl describe modelconfig gemini-model-config -n kagent
-```{{exec}}
+```
 
 
 If we have everything, we can now forward kagent UI to our port 8080
 
 Forward Kagent UI
-`nohup  kubectl port-forward --address 0.0.0.0  -n kagent svc/kagent-ui 8080:8080 > /dev/null 2>&1 &`{{exec}}
 
-
-Click on the link generated to see the front end
-`sed 's/PORT/8080/g' /etc/killercoda/host`{{exec}}
-
-
-
-
-
+```bash
+nohup  kubectl port-forward --address 0.0.0.0  -n kagent svc/kagent-ui 8080:8080 > /dev/null 2>&1 &
+````
 
 
 
