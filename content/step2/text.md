@@ -7,7 +7,8 @@ Create Kagent namespace
 kubectl create namespace kagent
 ```
 
-Ceate secret with Google Gemini Key (NEED TO FIND A WAY T INSERT KEY)
+Create secret with Google Gemini Key (NEED TO FIND A WAY T INSERT KEY)
+
 ```bash
 kubectl create secret generic kagent-gemini \
   -n kagent \
@@ -16,7 +17,7 @@ kubectl create secret generic kagent-gemini \
 
 
 Create the Kagent resource manifest for the Google Gemini Model
-```
+```bash
 cat > gemini-model.yaml <<'EOF'
 apiVersion: kagent.dev/v1alpha2
 kind: ModelConfig
