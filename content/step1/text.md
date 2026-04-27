@@ -7,6 +7,16 @@ sudo mv ./kind /usr/local/bin/kind
 kind version
 ```
 
+## Install Helm
+
+```bash
+sudo apt-get install curl gpg apt-transport-https --yes
+curl -fsSL https://packages.buildkite.com/helm-linux/helm-debian/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/helm.gpg] https://packages.buildkite.com/helm-linux/helm-debian/any/ any main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+sudo apt-get update
+sudo apt-get install helm
+```
+
 ## 2. Install kubectl
 
 ```bash
@@ -35,8 +45,6 @@ kubectl cluster-info
 ## 5. Add k alias and 
 
 ```bash
-#Make sure we are up to date, and that we have bash-completion
-sudo apt-get update
 sudo apt-get install -y bash-completion
 ```
 ## 6. Add kubectl completion and alias
