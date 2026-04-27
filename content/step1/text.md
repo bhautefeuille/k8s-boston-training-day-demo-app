@@ -42,12 +42,13 @@ kubectl get nodes
 kubectl cluster-info
 ```
 
-## 5. Add k alias and 
+## 5. Install bash auto completion 
 
 ```bash
 sudo apt-get install -y bash-completion
 ```
-## 6. Add kubectl completion and alias
+
+## 6. Add kubectl auto completion and alias
 
 ```bash
 #Add completion and alias
