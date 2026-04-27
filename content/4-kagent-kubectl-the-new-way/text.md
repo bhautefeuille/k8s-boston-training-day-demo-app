@@ -7,15 +7,8 @@ Create Kagent namespace
 kubectl create namespace kagent
 ```
 
-Get the Google Gemini key
-
-```bash
-read -p "Enter Google Gemini API key: " GEMINI_API_KEY
-```
-
 
 Create secret with Google Gemini Key
-
 
 ```bash
 kubectl create secret generic kagent-gemini \
