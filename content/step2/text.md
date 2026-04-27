@@ -58,7 +58,7 @@ kubectl apply -f gemini-model.yaml
 
 Install kagent
 
-```
+```bash
 helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent --namespace kagent  \
   --set providers.default=gemini \
   --set providers.gemini.provider=Gemini \
