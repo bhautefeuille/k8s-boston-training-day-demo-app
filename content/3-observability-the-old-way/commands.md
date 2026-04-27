@@ -13,11 +13,13 @@ helm repo add grafana https://grafana.github.io/helm-charts && helm repo update
 clone grafana settings repo
 ```bash
 git clone https://github.com/grafana/alloy-scenarios.git
-cd alloy-scenarios/k8s/logs
+
 ```
 
+Install Loki and Grafana
 
 ```bash
+cd alloy-scenarios/k8s/logs
 helm install --values killercoda/loki-values.yml loki grafana/loki -n meta
 helm install --values grafana-values.yml grafana grafana/grafana --namespace meta
 ```
