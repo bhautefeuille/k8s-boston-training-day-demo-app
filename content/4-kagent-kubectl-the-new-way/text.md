@@ -13,7 +13,7 @@ Create secret with Google Gemini Key
 ```bash
 kubectl create secret generic kagent-gemini \
   -n kagent \
-  --from-literal GOOGLE_API_KEY="your Gemini key here"
+  --from-literal GOOGLE_API_KEY=${GOOGLE_API_KEY}
 ```
 
 
