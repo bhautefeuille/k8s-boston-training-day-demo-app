@@ -34,7 +34,7 @@ helm install --values ./k8s-monitoring-values.yml k8s grafana/k8s-monitoring -n 
 
 ```bash
 kubectl port-forward --namespace meta --address 0.0.0.0 svc/loki-gateway 3100:80 &
-curl -H "Content-Type: application/json" -XPOST -s "http://127.0.0.1:3100/loki/api/v1/push"  --data-raw "{\"streams\": [{\"stream\": {\"job\": \"test\"}, \"values\": [[\"$(date +%s)000000000\", \"Ping from me!!\"]]}]}"
+curl -H "Content-Type: application/json" -XPOST -s "http://127.0.0.1:3100/loki/api/v1/push"  --data-raw "{\"streams\": [{\"stream\": {\"job\": \"test\"}, \"values\": [[\"$(date +%s)000000000\", \"This is very important log message from an ecommerce application\"]]}]}"
 ```
 
 
@@ -43,3 +43,10 @@ Make Grafana UI accessible
 export POD_NAME=$(kubectl get pods --namespace meta -l "app.kubernetes.io/name=grafana,app.kubernetes.io/instance=grafana" -o jsonpath="{.items[0].metadata.name}") 
 kubectl --namespace meta --address 0.0.0.0 port-forward $POD_NAME 3000  &
 ```
+
+Verif Loki is ready for business
+```bash
+kubectl run curl-test -n meta --image=curlimages/curl -it --rm -- /bin/sh -c ' curl -v http://loki-gateway.meta.svc.cluster.local/loki/api/v1/status/buildinfo'
+```
+
+
