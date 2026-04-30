@@ -11,6 +11,8 @@ kubectl create namespace kagent
 Create secret with Google Gemini Key
 
 ```bash
+export GOOGLE_API_KEY=$GEMINI_API_KEY
+echo "export GOOGLE_API_KEY=$GEMINI_API_KEY" >> ~/.bashrc
 source ~/.bashrc
 kubectl create secret generic kagent-gemini \
   -n kagent \
@@ -38,7 +40,6 @@ EOF
 ```
 
 Install CRDs for Kagent 
-
 ```bash
 helm install kagent-crds oci://ghcr.io/kagent-dev/kagent/helm/kagent-crds \
     --namespace kagent \
@@ -46,7 +47,6 @@ helm install kagent-crds oci://ghcr.io/kagent-dev/kagent/helm/kagent-crds \
 ```
 
 Create Kagent Resource object for the Google Gemini model
-
 ```bash
 kubectl apply -f gemini-model.yaml
 ```
