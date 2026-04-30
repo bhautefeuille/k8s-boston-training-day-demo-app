@@ -11,6 +11,7 @@ kubectl create namespace kagent
 Create secret with Google Gemini Key
 
 ```bash
+source ~/.bashrc
 kubectl create secret generic kagent-gemini \
   -n kagent \
   --from-literal GOOGLE_API_KEY=${GOOGLE_API_KEY}
@@ -97,14 +98,6 @@ helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent --namespace kage
 
 
 
-
-
-
-#   --set database.postgres.bundled.resources='{requests":{"cpu":"20m","memory":"25Mi"}}' \
-
-
-
-
 Verification
 
 ```bash
@@ -114,19 +107,12 @@ kubectl describe modelconfig gemini-model-config -n kagent
 ```
 
 
-If we have everything, we can now forward kagent UI to our port 8080
+If we have everything, we can now forward kagent UI to our port 8082
 
 Forward Kagent UI
 
 ```bash
-nohup  kubectl port-forward --address 0.0.0.0  -n kagent svc/kagent-ui 8080:8080 > /dev/null 2>&1 &
+nohup  kubectl port-forward --address 0.0.0.0  -n kagent svc/kagent-ui 8082:8080 > /dev/null 2>&1 &
 ````
 
 
-
-
-
-
-
-
-`kubectl taint nodes controlplane node-role.kubernetes.io/control-plane:NoSchedule-`{{exec}}
