@@ -34,6 +34,7 @@ spec:
   provider: Gemini
   gemini: {}
 EOF
+[ -f gemini-model.yaml ] && echo "gemini-model.yaml created"
 ```
 
 Install CRDs for Kagent 
