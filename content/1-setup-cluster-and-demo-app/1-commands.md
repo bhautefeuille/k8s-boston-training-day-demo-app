@@ -73,7 +73,8 @@ k get svc -A
 ## 8. Let's install a demo application with a eCommerce product listing page
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/odigos-io/simple-demo/main/kubernetes/deployment.yaml
+kubectl create ns demo-app
+kubectl apply -f https://raw.githubusercontent.com/odigos-io/simple-demo/main/kubernetes/deployment.yaml -n demo-app
 ```
 
 ## 9. Check the pods
