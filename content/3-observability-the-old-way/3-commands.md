@@ -29,6 +29,42 @@ The URL is in the format http://loki-gateway.<NAMESPACE>.svc.cluster.local:80 .
 Install K8s monitoring
 ```bash
 cd alloy-scenarios/k8s/logs
+cat <<'EOF' >> ./k8s-monitoring-values2.yml
+---
+cluster:
+  name: meta-monitoring-tutorial
+
+destinations:
+  loki:
+    type: loki
+    url: http://loki-gateway.meta.svc.cluster.local/loki/api/v1/push
+
+clusterEvents:
+  enabled: true
+  collector: alloy-singleton
+  namespaces:
+    - meta
+    - prod
+    - demo-app
+    
+
+podLogsViaKubernetesApi:
+  enabled: true
+  collector: alloy-logs
+  namespaces:
+    - meta
+    - prod
+    - demo-app
+  structuredMetadata:
+    pod: pod
+
+collectors:
+  alloy-singleton:
+    presets: [singleton]
+  alloy-logs:
+    presets: [clustered]
+EOF
+
 helm install --values ./k8s-monitoring-values.yml k8s grafana/k8s-monitoring -n meta
 ```
 
