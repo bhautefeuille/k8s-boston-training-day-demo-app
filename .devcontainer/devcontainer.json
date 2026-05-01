@@ -14,9 +14,8 @@
   "onCreateCommand": {
     "pull-base-images": "docker pull docker.io/mcp/grafana:latest",
     "pull-test-images": "docker pull testcontainers/ryuk:0.7.0 && docker pull localstack/localstack:3",
-    "pull odigos-demo-images": "registry.odigos.io/odigos-demo-pricing:v0.1.35 &&  registry.odigos.io/odigos-demo-membership:v0.1.35 && registry.odigos.io/odigos-demo-load-generator:v0.1.35 && registry.odigos.io/odigos-demo-coupon:v0.1.35",
-    "pull odigos-demo-images2": "registry.odigos.io/odigos-demo-currency:v0.1.35 && registry.odigos.io/odigos-demo-frontend:v0.1.35 && registry.odigos.io/odigos-demo-geolocation:v0.1.35 && registry.odigos.io/odigos-demo-inventory:v0.1.35 "
-
+    "pull odigos-demo-images": "docker pull  registry.odigos.io/odigos-demo-pricing:v0.1.35 &&  docker pull  registry.odigos.io/odigos-demo-membership:v0.1.35 && docker pull registry.odigos.io/odigos-demo-load-generator:v0.1.35 && docker pull registry.odigos.io/odigos-demo-coupon:v0.1.35",
+    "pull odigos-demo-images2": "docker pull registry.odigos.io/odigos-demo-currency:v0.1.35 && docker pull registry.odigos.io/odigos-demo-frontend:v0.1.35 && docker pull registry.odigos.io/odigos-demo-geolocation:v0.1.35 && docker pull registry.odigos.io/odigos-demo-inventory:v0.1.35 "
 
   },
 
