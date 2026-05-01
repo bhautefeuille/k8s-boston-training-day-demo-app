@@ -31,3 +31,18 @@ Use AI to explain what it found
 ```bash
 k8sgpt analyze --explain --backend google
 ```
+
+Anonymize... Yes, AI is public unless you ask it not to be
+```bash
+k8sgpt analyse --explain --backend google --interactive  --anonymize
+```
+
+Let's create a cpu hogger pod
+```bash
+kubectl run pending-pod --image=nginx --overrides='{"spec":{"containers":[{"name":"cpu-hog","image":"nginx","resources":{"requests":{"cpu":"99999"}}}]}}'
+```
+
+Let's see what it found
+```bash
+k8sgpt analyse --explain --backend google --interactive  --anonymize
+```
