@@ -46,3 +46,23 @@ Let's see what it found
 ```bash
 k8sgpt analyse --explain --backend google --interactive  --anonymize
 ```
+
+Delete the pb
+```bash
+kubectl delete pod pending-pod -n default
+```
+
+Let's create a broken app
+```bash
+kubctl apply -f broken-app.yaml
+```
+
+Unleash k8sgpt
+```bash
+k8sgpt analyse --explain --backend google --interactive  --anonymize
+```
+
+Delete the broken app
+```bash
+kubctl delete -f broken-app.yaml
+```
