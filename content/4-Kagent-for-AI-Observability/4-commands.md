@@ -136,7 +136,8 @@ spec:
       You can search dashboards, query Prometheus metrics, and read Loki logs
       from the Grafana instance. Be concise and cite the dashboards or queries you used.
     tools:
-      - mcpServer:
+      - type: McpServer
+        mcpServer:
           apiGroup: kagent.dev
           kind: RemoteMCPServer
           name: grafana-mcp
