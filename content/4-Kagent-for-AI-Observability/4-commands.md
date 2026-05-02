@@ -140,13 +140,6 @@ spec:
           apiGroup: kagent.dev
           kind: RemoteMCPServer
           name: grafana-mcp
-        toolNames:
-          - search_dashboards
-          - query_prometheus
-          - query_loki_logs
-          - query_loki_stats
-          - list_datasources
-          - list_teams
 EOF
 kubectl apply -f grafana-agent.yaml
 ```

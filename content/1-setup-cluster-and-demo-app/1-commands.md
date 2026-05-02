@@ -87,7 +87,7 @@ k get pods -A
 k get svc -A
 ```
 
-## 11. we forward the service to port 8080
+## 11. We forward the service to port 8080
 ```bash
 k port-forward --address 0.0.0.0 svc/frontend -n demo-app 8080:8080 &
 ```
