@@ -109,10 +109,15 @@ helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent --namespace kage
 
 ```
 
+```bash
+kubectl set env deployment/kagent-grafana-mcp -n kagent \
+  GRAFANA_URL=http://grafana.meta.svc.cluster.local:80 \
+  GRAFANA_API_KEY=XXXXXXXXXXX
+```
+
 
 
 Verification
-
 ```bash
 kubectl get pods -n kagent
 kubectl get modelconfigs -n kagent
@@ -121,7 +126,6 @@ kubectl describe modelconfig gemini-model-config -n kagent
 
 
 Create the Grafana Agent
-
 ```bash
 cat > grafana-agent.yaml <<'EOF'
 apiVersion: kagent.dev/v1alpha2
