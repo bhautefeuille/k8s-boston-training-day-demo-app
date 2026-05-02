@@ -2,7 +2,9 @@ GEMINI API KEY
 
 Enter this line in the terminal below. Replace XXXXXXXXXXXXXXXXXXXX by your GEMINI API KEY:
 
-```echo "export GEMINI_API_KEY=XXXXXXXXXXXXXXXXXXXX" >> ~/.bashrc```
+```bash copy
+echo "export GEMINI_API_KEY=XXXXXXXXXXXXXXXXXXXX" >> ~/.bashrc
+```
 
 Verify your Gemini API Key
 ```bash
