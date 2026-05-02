@@ -12,6 +12,7 @@ kubectl create namespace kagent
 Create secret with Google Gemini Key
 
 ```bash
+source ~/.bashrc
 export GOOGLE_API_KEY=$GEMINI_API_KEY
 echo "export GOOGLE_API_KEY=$GEMINI_API_KEY" >> ~/.bashrc
 source ~/.bashrc
