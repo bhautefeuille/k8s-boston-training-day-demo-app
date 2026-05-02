@@ -74,11 +74,22 @@ curl -H "Content-Type: application/json" -XPOST -s "http://127.0.0.1:3100/loki/a
 ```
 
 
-Make Grafana UI accessible
+Make Grafana UI accessible.
 ```bash
 export POD_NAME=$(kubectl get pods --namespace meta -l "app.kubernetes.io/name=grafana,app.kubernetes.io/instance=grafana" -o jsonpath="{.items[0].metadata.name}") 
 kubectl --namespace meta --address 0.0.0.0 port-forward $POD_NAME 3000  &
 ```
+
+
+Left sidebar → Administration → Users and access → Service accounts
+Click "Add service account", make it admin for now
+click "Add service account token", generate and copy it. We will use this "Grafana Service Accoun Token" later.
+
+Getting the Loki UID:
+Left sidebar → Connections → Data sources → click Loki
+The Loki  UID is in the browser URL:
+/connections/datasources/edit/<UID-is-here>
+
 
 Verif Loki is ready for business
 ```bash
