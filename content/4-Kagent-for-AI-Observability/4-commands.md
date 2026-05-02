@@ -73,8 +73,8 @@ helm install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent --namespace kage
   --set agents.observability-agent.enabled=true \
   --set agents.promql-agent.enabled=true \
   --set tools.grafana-mcp.enabled=true \
-+ --set grafana-mcp.grafana.url=http://grafana.meta.svc.cluster.local \
-+ --set grafana-mcp.grafana.serviceAccountToken=XXXXXXXXXXXXXXXXXXXXX \
+  --set grafana-mcp.grafana.url=http://grafana.meta.svc.cluster.local \
+  --set grafana-mcp.grafana.serviceAccountToken=XXXXXXXXXXXXXXXXXXXXX \
   --set tools.querydoc.enabled=true \
   --set kagent-tools.enabled=true \
  --set querydoc.resources.requests.cpu="20m" \
