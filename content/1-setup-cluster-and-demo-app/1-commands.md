@@ -29,7 +29,7 @@ rm stable.txt
 kubectl version --client
 ```
 
-## 3. Create a kind cluster with 2 nodes, a controle plane and a worker node
+## 3. Create a kind cluster with 2 nodes, a control plane and a worker node
 
 ```bash
 kind create cluster --name training --config /workspaces/k8s-boston-training-day-demo-app/misc/kind-config.yaml
