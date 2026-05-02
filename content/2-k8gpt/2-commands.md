@@ -64,5 +64,5 @@ k8sgpt analyse --explain --backend google --interactive  --anonymize
 
 Delete the broken app
 ```bash
-kubctl delete -f broken-app.yaml
+kubectl delete -f broken-app.yaml
 ```
