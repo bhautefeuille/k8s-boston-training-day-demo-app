@@ -147,12 +147,18 @@ kubectl get remotemcpserver grafana-mcp -n kagent
 ```
 
 
-If we have everything, we can now forward kagent UI to our port 8082
-
+If we have everything, we can now forward kagent UI to our port 8082.
 Forward Kagent UI
-
 ```bash
 nohup  kubectl port-forward --address 0.0.0.0  -n kagent svc/kagent-ui 8082:8080 > /dev/null 2>&1 &
 ````
 
+The Grafana Agent appears in the Kagent front end ( it may take a couple minutes)
+Click the 3 dots in the Agent card. Inside the agent settings, you can choose the tools to add.
+In our case, the Loki tools are what we need, add them all (5 or 6 tools).
+THe agent pods restarts, it may take one minute.
 
+On the Kagent front end, the agent may ask you the Loki UID.
+
+You have installed the Grafana MCP server and are interacting with the Grafana agent.
+You can now query your observability data through the Grafana agent, by conversing with your LLM backend.
